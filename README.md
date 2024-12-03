@@ -1,1 +1,1 @@
-# coding-dojo
+# Coding dojo for team App
