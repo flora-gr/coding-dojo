@@ -1,5 +1,5 @@
 import 'dart:core';
-import 'base/base.dart' as base;
+import '../base/base.dart' as base;
 
 Future<void> calculate() async {
   base.calculate = _passBlizzards;

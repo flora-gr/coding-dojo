@@ -11,6 +11,10 @@ Future<void> run(int index) async {
   stopwatch.stop();
   final int firstExampleTime = stopwatch.elapsedMilliseconds;
 
+  print('\nResults part $index:\n'
+      'Example answer: $exampleSolution (${_isCorrect(exampleSolution, exampleAnswer) ? 'correct' : 'incorrect'}) - '
+      'Example time: ${firstExampleTime}ms\n');
+
   stopwatch
     ..reset()
     ..start();
@@ -18,10 +22,8 @@ Future<void> run(int index) async {
   stopwatch.stop();
   final int solutionTime = stopwatch.elapsedMilliseconds;
 
-  print('\nResults part $index:\n'
-      'Example answer: $exampleSolution (${_isCorrect(exampleSolution, exampleAnswer) ? 'correct' : 'incorrect'}) - '
-      'Example time: ${firstExampleTime}ms\n'
-      'Solution answer: $solution (${_isCorrect(solution, solutionAnswer) ? 'correct' : 'incorrect'})- '
+  print(
+      'Solution answer: $solution (${_isCorrect(solution, solutionAnswer) ? 'correct' : 'incorrect'}) - '
       'Solution time: ${solutionTime}ms');
 }
 

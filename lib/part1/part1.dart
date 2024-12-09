@@ -1,7 +1,5 @@
 import 'dart:core';
-import 'base/base.dart' as base;
-
-// Assignment taken from https://adventofcode.com/2022/day/24
+import '../base/base.dart' as base;
 
 Future<void> calculate() async {
   base.calculate = _passBlizzards;
@@ -10,8 +8,8 @@ Future<void> calculate() async {
   await base.run(1);
 }
 
-final String rock = '#';
-final String free = '.';
+String rock = '#';
+String free = '.';
 late List<Position> positions;
 late List<Blizzard> blizzards;
 late int maxX;
