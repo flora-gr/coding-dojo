@@ -11,6 +11,7 @@ Assignment taken from https://adventofcode.com/2022/day/24
 3) See how you can improve the performance of this solution
 - Answer should still be the same
 - Debugging doesn't stop the timer, so don't trust the reported time when using a break point
+- Start with _passThroughBlizzards: here you can use Sets instead of lists for the queues (see tips section below)
 
 4) An example of a faster solution is in _part1.dart, you can run it by changing the import in bin/main.dart
 
