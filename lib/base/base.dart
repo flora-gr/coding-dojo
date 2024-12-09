@@ -13,7 +13,8 @@ Future<void> run(int index) async {
 
   print('\nResults part $index:\n'
       'Example answer: $exampleSolution (${_isCorrect(exampleSolution, exampleAnswer) ? 'correct' : 'incorrect'}) - '
-      'Example time: ${firstExampleTime}ms\n');
+      'Example time: ${firstExampleTime}ms\n'
+      '..calculating next part..\n');
 
   stopwatch
     ..reset()
