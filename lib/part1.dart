@@ -18,7 +18,7 @@ late int maxX;
 late int maxY;
 
 int _passBlizzards(List<String> dataLines) {
-  _fillPositionsAndBlizards(dataLines);
+  _fillPositionsAndBlizzards(dataLines);
   var start = Position(X: 1, Y: 0);
   maxX = dataLines.first.length - 1;
   maxY = dataLines.length - 1;
@@ -27,7 +27,7 @@ int _passBlizzards(List<String> dataLines) {
   return minutes;
 }
 
-void _fillPositionsAndBlizards(List<String> dataLines) {
+void _fillPositionsAndBlizzards(List<String> dataLines) {
   positions = <Position>[];
   blizzards = <Blizzard>[];
   for (int i = 0; i < dataLines.length; i++) {
@@ -38,10 +38,12 @@ void _fillPositionsAndBlizards(List<String> dataLines) {
         positions.add(Position(X: j, Y: i, isRock: true));
       } else {
         if (element != free) {
-          blizzards.add(Blizzard(
-            direction: element,
-            position: Position(X: j, Y: i),
-          ));
+          blizzards.add(
+            Blizzard(
+              direction: element,
+              position: Position(X: j, Y: i),
+            ),
+          );
         }
         positions.add(Position(X: j, Y: i));
       }
@@ -51,14 +53,14 @@ void _fillPositionsAndBlizards(List<String> dataLines) {
 
 int _passThroughBlizzards(Position begin, Position goal) {
   int minutes = 0;
-  Set<Position> queue = <Position>{...begin.getAdjacentFree()};
-  final Set<Position> nextQueue = <Position>{};
+  List<Position> queue = <Position>[...begin.getAdjacentFree()];
+  final List<Position> nextQueue = <Position>[];
   while (!queue.contains(goal)) {
     _shiftBlizzards();
     for (Position pos in queue) {
       nextQueue.addAll(pos.getAdjacentFree());
     }
-    queue = Set<Position>.from(nextQueue);
+    queue = List<Position>.from(nextQueue);
     nextQueue.clear();
     minutes++;
   }

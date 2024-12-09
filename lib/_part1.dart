@@ -11,22 +11,22 @@ Future<void> calculate() async {
 const String rock = '#';
 const String free = '.';
 late Map<int, List<Position>> map;
-late Map<int, List<Blizzard>> blizzards;
+late Map<int, Set<Blizzard>> blizzards;
 
 int _passBlizzards(List<String> dataLines) {
-  _fillMapAndBlizards(dataLines);
+  _fillMapAndBlizzards(dataLines);
   final Position start = map[0]![1];
   final Position end = map[map.length - 1]![map[map.length - 1]!.length - 2];
   int minutes = _passThroughBlizzards(start, end);
   return minutes;
 }
 
-void _fillMapAndBlizards(List<String> dataLines) {
+void _fillMapAndBlizzards(List<String> dataLines) {
   map = <int, List<Position>>{};
-  blizzards = <int, List<Blizzard>>{};
+  blizzards = <int, Set<Blizzard>>{};
   for (int i = 0; i < dataLines.length; i++) {
     map[i] = <Position>[];
-    blizzards[i] = <Blizzard>[];
+    blizzards[i] = <Blizzard>{};
     final List<String> split = dataLines[i].split('');
     for (int j = 0; j < split.length; j++) {
       final String element = split[j];
@@ -34,10 +34,12 @@ void _fillMapAndBlizards(List<String> dataLines) {
         map[i]!.add(Position(X: j, Y: i, isRock: true));
       } else {
         if (element != free) {
-          blizzards[i]!.add(Blizzard(
-            direction: element,
-            position: Position(X: j, Y: i),
-          ));
+          blizzards[i]!.add(
+            Blizzard(
+              direction: element,
+              position: Position(X: j, Y: i),
+            ),
+          );
         }
         map[i]!.add(Position(X: j, Y: i));
       }
@@ -62,8 +64,8 @@ int _passThroughBlizzards(Position begin, Position goal) {
 }
 
 void _shiftBlizzards() {
-  final Map<int, List<Blizzard>> newBlizzards = <int, List<Blizzard>>{
-    for (int row in map.keys) row: <Blizzard>[]
+  final Map<int, Set<Blizzard>> newBlizzards = <int, Set<Blizzard>>{
+    for (int row in map.keys) row: <Blizzard>{}
   };
   for (int row in blizzards.keys) {
     for (Blizzard blizzard in blizzards[row]!) {
