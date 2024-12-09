@@ -1,6 +1,6 @@
 Assignment taken from https://adventofcode.com/2022/day/24
 
-1) Read the assignment of day 24: calculate how many minutes it takes to walk through the blizards
+1) Read the assignment of day 24: calculate the least number of minutes it takes to walk through the blizzards
 
 2) Together, try to understand the solution in part1.dart:
 - Reading the data using _fillPositionsAndBlizzards, which makes a list of all blizards and all positions and whether there is a rock
@@ -20,8 +20,8 @@ Assignment taken from https://adventofcode.com/2022/day/24
 
 * Object creation
 - Don't create/recompute new objects inside loops unnecessarily
-- Use const when always the same, instead of mutable variables
-- Use final when only assigning once, instead of mutable variables
+- Use const when a value is always the same, instead of mutable variables
+- Use final when only assigning a value once, instead of mutable variables
 - Cache frequently accessed data
 
 * Collections
