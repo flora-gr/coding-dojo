@@ -1,3 +1,5 @@
+# Dart performance assignment part 1
+
 Assignment taken from https://adventofcode.com/2022/day/24
 
 1) Read the assignment of day 24: calculate the least number of minutes it takes to walk through the blizzards
@@ -18,13 +20,13 @@ Assignment taken from https://adventofcode.com/2022/day/24
 
 ########### TIPS BELOW ###########
 
-* Object creation
+> Object creation
 - Don't create/recompute new objects inside loops unnecessarily
 - Use const when a value is always the same, instead of mutable variables
 - Use final when only assigning a value once, instead of mutable variables
 - Cache frequently accessed data
 
-* Collections
+> Collections
 - Use Set instead of List for unique collections. This will immediately deduplicate input and greatly improves lookup performance.
 - When using lists that don't change, use (growable: false) in toList(). This fixes the allocated memory size for the list and improves performance because it will not dynamically resize the list.
 - Use indexed arrays or Maps for grids instead of long lists.
@@ -32,12 +34,12 @@ Say you have a map with coordinates and values, then you could use Map<int, Map<
 where the first int (the keys of the first Map) is the Y coordinate, and the second int (the keys of the second Map) is the X coordinate.
 You can quickly first find the correct row map[Y] and then the place in the row map[Y][X] to find the String value of that position.
 
-* Efficient code behaviour
+> Efficient code behaviour
 - Don't use nested loops, prefer forEach and map
 - Use efficient methods like 'where' (LINQ like)
 - You can use break to exit a 'while' or 'for' loop instead of completing it (can be useful)
 
-* More online:
+> More online:
 https://clouddevs.com/dart/performance-optimization-techniques/
 
-* Maybe you find more!
+> Maybe you find more!
