@@ -21,12 +21,13 @@ Future<void> run(int index) async {
   print('\nResults part $index:\n'
       'Example answer: $exampleSolution (${_isCorrect(exampleSolution, exampleAnswer) ? 'correct' : 'incorrect'}) - '
       'Example time: ${firstExampleTime}ms\n'
-      'Solution answer: $solution - '
+      'Solution answer: $solution (${_isCorrect(solution, solutionAnswer) ? 'correct' : 'incorrect'})- '
       'Solution time: ${solutionTime}ms');
 }
 
 late Object Function(List<String> dataLines) calculate;
 late Object exampleAnswer;
+late Object solutionAnswer;
 
 bool _isCorrect(Object exampleSolution, Object exampleAnswer) {
   if (exampleSolution is List && exampleAnswer is List) {

@@ -2,8 +2,9 @@ import 'dart:core';
 import 'base/base.dart' as base;
 
 Future<void> calculate() async {
-  base.calculate = _passThrice;
-  base.exampleAnswer = 54;
+  base.calculate = _passBlizzards;
+  base.exampleAnswer = 18;
+  base.solutionAnswer = 240;
   await base.run(1);
 }
 
@@ -12,13 +13,11 @@ const String free = '.';
 late Map<int, List<Position>> map;
 late Map<int, List<Blizzard>> blizzards;
 
-int _passThrice(List<String> dataLines) {
+int _passBlizzards(List<String> dataLines) {
   _fillMapAndBlizards(dataLines);
   final Position start = map[0]![1];
   final Position end = map[map.length - 1]![map[map.length - 1]!.length - 2];
   int minutes = _passThroughBlizzards(start, end);
-  minutes += _passThroughBlizzards(end, start);
-  minutes += _passThroughBlizzards(start, end);
   return minutes;
 }
 

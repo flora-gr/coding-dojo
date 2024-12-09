@@ -6,7 +6,7 @@ import 'base/base.dart' as base;
 Future<void> calculate() async {
   base.calculate = _passBlizzards;
   base.exampleAnswer = 18;
-  // for passing the blizard three times, the example answer is 54
+  base.solutionAnswer = 240;
   await base.run(1);
 }
 
@@ -24,8 +24,6 @@ int _passBlizzards(List<String> dataLines) {
   maxY = dataLines.length - 1;
   var end = Position(X: maxX - 1, Y: maxY);
   int minutes = _passThroughBlizzards(start, end);
-  // minutes += _passThroughBlizzards(end, start);
-  // minutes += _passThroughBlizzards(start, end);
   return minutes;
 }
 
