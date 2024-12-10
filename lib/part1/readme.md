@@ -40,6 +40,8 @@ You can quickly first find the correct row map[Y] and then the place in the row 
 - You can use break to exit a 'while' or 'for' loop instead of completing it (can be useful)
 
 > More online:
-https://clouddevs.com/dart/performance-optimization-techniques/
+- https://clouddevs.com/dart/performance-optimization-techniques/
+- https://dart.dev/effective-dart en https://dart.dev/effective-dart/usage
 
 > Maybe you find more!
+- Out of scope, but interesting for another time: rendering performance / rebuilds etc. in Flutter/Dart
