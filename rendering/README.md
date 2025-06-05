@@ -1,4 +1,4 @@
-🧘‍♂️ Coding Dojo: Optimizing Flutter UI Performance
+# Coding Dojo: Optimizing Flutter UI Performance
 In mobile development, especially with Flutter, it's important to build lightweight apps that don’t 
 overburden the device’s CPU or GPU. Even though Flutter is optimized for performance, careless widget 
 structuring can lead to unnecessary work — especially in the form of rebuilds and repaints. This makes
