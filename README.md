@@ -1,3 +1,3 @@
 # Coding dojo's for team App
-Dart performance
-Render performance
+- Dart performance
+- Render performance
