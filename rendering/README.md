@@ -4,19 +4,19 @@ overburden the device’s CPU or GPU. Even though Flutter is optimized for perfo
 structuring can lead to unnecessary work — especially in the form of rebuilds and repaints. This makes
 an app feel 'heavy' when running on the device.
 
-🔄 Rebuilds vs 🎨 Repaints
+## 🔄 Rebuilds vs 🎨 Repaints
 Rebuild:	Flutter re-executes the build() method to regenerate the widget tree.
 Repaint:	Flutter redraws pixels on the screen — this can be expensive if overused.
 Even if rebuilds are efficient, painting can still be costly — especially for complex UIs or 
 animations.
 
-🧩 How to Limit Rebuilds
+## 🧩 How to Limit Rebuilds
 - Break down large widgets into smaller, reusable widgets.
 - Use const constructors where possible.
 - Prefer StatelessWidget when state is not needed.
 - Use ValueListenableBuilder, AnimatedBuilder, or similar widgets to isolate updates.
 
-🖼️ How to Limit Repaints
+## 🖼️ How to Limit Repaints
 Even if rebuilds are optimized, repaints can still be a bottleneck. Unnecessary redraws can be 
 prevented with RepaintBoundary, a widget that creates a separate layer in the rendering tree. 
 This means that it isolates a subtree for painting. When something inside it changes, only that 
@@ -26,10 +26,10 @@ Use RepaintBoundary when:
 - You want to optimize animations or scrolling performance.
 - You’re profiling your app using Flutter DevTools (it visually shows repaint boundaries).
 
-🧪 In This Assignment
+## 🧪 In This Assignment
 You’ll explore and apply performance optimizations in a sample Flutter app.
 
-Tasks:
+### Tasks:
 1) Profile performance using Flutter DevTools:
 - Use the Debugger with break points inside your build method to track rebuilds.
 - Read this documentation https://docs.flutter.dev/tools/devtools/performance and use the 
@@ -44,11 +44,12 @@ Performance Overlay to visualize repaint boundaries and look at frame rebuilds.
 
 4) Follow-up if you're done: https://www.youtube.com/watch?v=_EYk-E29edo
 
-🔍 Where to Find the Performance Overlay in Flutter 
+### 🔍 Where to Find the Performance Overlay in Flutter 
 1) Using Flutter DevTools
 - Run your app in debug mode.
 - Open DevTools: you can launch it from your IDE (right side in Android Studio
-  or https://docs.flutter.dev/tools/devtools/vscode for vscode).- Go to the Performance tab.
+  or https://docs.flutter.dev/tools/devtools/vscode for vscode).
+- Go to the Performance tab.
 - Enable "Show Performance Overlay".
 2) From Code
 - Add this to your MaterialApp: showPerformanceOverlay: true
