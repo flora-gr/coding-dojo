@@ -63,12 +63,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+
+            // Expensive static section
             // Container 1: consider this a part that does not change often
             Container(
               color: Colors.blue[50],
               padding: EdgeInsets.all(20),
               child: Column(
-                children: [
+                children: <Widget>[
                   Text(
                     'This part does not change often',
                     style: TextStyle(fontSize: 24),
@@ -81,15 +83,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Counter: $_firstCounter',
                     style: TextStyle(fontSize: 20),
                   ),
+                  Column(
+                    children: List.generate(
+                      5,
+                      (index) => _buildExpensiveWidget(index),
+                    ),
+                  ),
                 ],
               ),
             ),
+
+            // Dynamic section
             // Container 2: consider this a part that changes frequently
             Container(
               color: _secondCounter % 2 == 0 ? Colors.red : Colors.green,
               padding: EdgeInsets.all(30),
               child: Column(
-                children: [
+                children: <Widget>[
                   Text(
                     'This widget updates frequently',
                     style: TextStyle(fontSize: 24),
@@ -102,6 +112,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Counter: $_secondCounter',
                     style: TextStyle(fontSize: 20),
                   ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: 50,
+                    itemBuilder: (context, index) {
+                      print('List item $index rebuilt');
+                      return ListTile(title: Text('Item $index'));
+                    },
+                  ),
                 ],
               ),
             ),
@@ -110,4 +129,17 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+}
+
+Widget _buildExpensiveWidget(int index) {
+  // Simulate CPU work
+  for (int i = 0; i < 1000000; i++) {
+    // do nothing
+  }
+  return Container(
+    margin: EdgeInsets.symmetric(vertical: 5),
+    height: 60,
+    color: Colors.orange[100],
+    child: Center(child: Text('Expensive Widget $index')),
+  );
 }

@@ -36,15 +36,16 @@ You’ll explore and apply performance optimizations in a sample Flutter app.
 Performance Overlay to visualize repaint boundaries and look at frame rebuilds.
 
 2) Identify which parts of the UI are unnecessarily rebuilding.
-- Refactor the code using separate StatelessWidgets
+- Refactor the code using separate StatelessWidgets.
 - Use RepaintBoundary to isolate repaint-heavy areas.
+- Try to use ValueNotifier combined with AnimatedBuilder to rebuild Container 2
 - Has the example app improved its render performance?
 
 3) Try to do the same for one of our own complex app widget trees/pages
 
 4) Follow-up if you're done: https://www.youtube.com/watch?v=_EYk-E29edo
 
-### 🔍 Where to Find the Performance Overlay in Flutter 
+### 🔍 Where to Find the Performance Overlay in Flutter
 1) Using Flutter DevTools
 - Run your app in debug mode.
 - Open DevTools: you can launch it from your IDE (right side in Android Studio
