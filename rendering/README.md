@@ -5,8 +5,15 @@ structuring can lead to unnecessary work — especially in the form of rebuilds 
 an app feel 'heavy' when running on the device.
 
 ## 🔄 Rebuilds vs 🎨 Repaints
-Rebuild:	Flutter re-executes the build() method to regenerate the widget tree.
-Repaint:	Flutter redraws pixels on the screen — this can be expensive if overused.
+### Rebuild
+Flutter re-executes the build() method to regenerate the widget tree. This is triggered by setState, 
+Provider, Bloc, and other state management tools. It creates new widget instances but doesn't 
+necessarily redraw pixels unless the visual appearance changes.
+### Repaint
+Flutter redraws the visual representation (pixels) on the screen. This happens when the render 
+object needs to update its appearance, even if the widget tree hasn't changed — for example, during 
+animations, scrolling, or when a CustomPainter is updated.
+
 Even if rebuilds are efficient, painting can still be costly — especially for complex UIs or 
 animations.
 
