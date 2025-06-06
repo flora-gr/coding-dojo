@@ -1,8 +1,8 @@
 # Coding Dojo: Optimizing Flutter UI Performance
 In mobile development, especially with Flutter, it's important to build lightweight apps that don’t 
 overburden the device’s CPU or GPU. Even though Flutter is optimized for performance, careless widget 
-structuring can lead to unnecessary work — especially in the form of rebuilds and repaints. This makes
-an app feel 'heavy' when running on the device.
+structuring can lead to unnecessary work — especially in the form of rebuilds and repaints. This can 
+make the app feel sluggish or unresponsive.
 
 ## 🔄 Rebuilds vs 🎨 Repaints
 ### Rebuild
@@ -14,14 +14,14 @@ Flutter redraws the visual representation (pixels) on the screen. This happens w
 object needs to update its appearance, even if the widget tree hasn't changed — for example, during 
 animations, scrolling, or when a CustomPainter is updated.
 
-Even if rebuilds are efficient, painting can still be costly — especially for complex UIs or 
-animations.
+Rebuilds don’t always lead to repaints, and repaints can happen without rebuilds. Even if rebuilds 
+are efficient, painting can still be costly — especially for complex UIs or animations.
 
 ## 🧩 How to Limit Rebuilds
 - Break down large widgets into smaller, reusable widgets.
-- Use const constructors where possible.
+- Use const constructors where possible, which helps Flutter short-circuit rebuilds by reusing widget instances.
 - Prefer StatelessWidget when state is not needed.
-- Use ValueListenableBuilder, AnimatedBuilder, or similar widgets to isolate updates.
+- Use ValueListenableBuilder, AnimatedBuilder, ListenableBuilder or similar widgets to isolate updates.
 
 ## 🖼️ How to Limit Repaints
 Even if rebuilds are optimized, repaints can still be a bottleneck. Unnecessary redraws can be 
@@ -32,6 +32,7 @@ Use RepaintBoundary when:
 - You have complex widgets that don’t change often but are inside a frequently updating parent.
 - You want to optimize animations or scrolling performance.
 - You’re profiling your app using Flutter DevTools (it visually shows repaint boundaries).
+However, RepaintBoundary can increase memory usage if overused.
 
 ## 🧪 In This Assignment
 You’ll explore and apply performance optimizations in a sample Flutter app.
@@ -48,7 +49,7 @@ Performance Overlay to visualize repaint boundaries and look at frame rebuilds.
 - Try to use ValueNotifier combined with AnimatedBuilder to rebuild Container 2.
 - Has the example app improved its render performance?
 
-3) Try to do the same for one of our own complex app widget trees/pages
+3) Try applying the same optimizations to one of our own complex widget trees or pages.
 
 4) Follow-up if you're done: https://www.youtube.com/watch?v=_EYk-E29edo
 
@@ -62,3 +63,4 @@ Performance Overlay to visualize repaint boundaries and look at frame rebuilds.
 2) From Code
 - Add this to your MaterialApp: showPerformanceOverlay: true
 - This will display the overlay directly on your app screen.
+- This is a debug-only tool and should not be used in production builds.
