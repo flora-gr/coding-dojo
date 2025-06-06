@@ -1,8 +1,8 @@
 # Coding Dojo: Optimizing Flutter UI Performance
-In mobile development, especially with Flutter, it's important to build lightweight apps that don’t 
-overburden the device’s CPU or GPU. Even though Flutter is optimized for performance, careless widget 
-structuring can lead to unnecessary work — especially in the form of rebuilds and repaints. This can 
-make the app feel sluggish or unresponsive.
+In mobile development, it's important to build lightweight apps that don’t overburden the device’s 
+CPU or GPU. Even though Flutter is optimized for performance, careless widget structuring can lead 
+to unnecessary work — especially in the form of rebuilds and repaints. This can make the app feel 
+sluggish or unresponsive.
 
 ## 🔄 Rebuilds vs 🎨 Repaints
 ### Rebuild
