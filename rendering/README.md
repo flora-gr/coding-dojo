@@ -14,16 +14,16 @@ Flutter redraws the visual representation (pixels) on the screen. This happens w
 object needs to update its appearance, even if the widget tree hasn't changed — for example, during 
 animations, scrolling, or when a CustomPainter is updated.
 
-Rebuilds don’t always lead to repaints, and repaints can happen without rebuilds. Even if rebuilds 
+> Rebuilds don’t always lead to repaints, and repaints can happen without rebuilds. Even if rebuilds 
 are efficient, painting can still be costly — especially for complex UIs or animations.
 
-## 🧩 How to Limit Rebuilds
+## 🔄 How to Limit Rebuilds
 - Break down large widgets into smaller, reusable widgets.
 - Use const constructors where possible, which helps Flutter short-circuit rebuilds by reusing widget instances.
 - Prefer StatelessWidget when state is not needed.
 - Use ValueListenableBuilder, AnimatedBuilder, ListenableBuilder or similar widgets to isolate updates.
 
-## 🖼️ How to Limit Repaints
+## 🎨 How to Limit Repaints
 Even if rebuilds are optimized, repaints can still be a bottleneck. Unnecessary redraws can be 
 prevented with RepaintBoundary, a widget that creates a separate layer in the rendering tree. 
 This means that it isolates a subtree for painting. When something inside it changes, only that 
@@ -32,17 +32,19 @@ Use RepaintBoundary when:
 - You have complex widgets that don’t change often but are inside a frequently updating parent.
 - You want to optimize animations or scrolling performance.
 - You’re profiling your app using Flutter DevTools (it visually shows repaint boundaries).
-However, RepaintBoundary can increase memory usage if overused.
+
+> RepaintBoundary can increase memory usage if overused.
 
 ## 🧪 In This Assignment
 You’ll explore and apply performance optimizations in a sample Flutter app.
 
 ### Tasks:
 1) Profile performance using Flutter DevTools:
-- Use the Debugger with break points inside your build method to track rebuilds.
+- Use the debugger with breakpoints inside your build() method to track rebuilds.
 - Read this documentation https://docs.flutter.dev/tools/devtools/performance and use the 
 Performance Overlay to visualize repaint boundaries and look at frame rebuilds.
 - Have a look at the different options for tracking widget builds, layouts and paints.
+- Have a look at disabling render layer types (clip, opacity, physical).
 
 2) Identify which parts of the UI are unnecessarily rebuilding or repainting.
 - Refactor the code using separate StatelessWidgets.
