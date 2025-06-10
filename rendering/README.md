@@ -54,6 +54,7 @@ Performance Overlay to visualize repaint boundaries and look at frame rebuilds.
 - Has the example app improved its render performance?
 
 3) Try applying the same optimizations to one of our own complex widget trees or pages!
+- We don't want to call saveLayer any more than necessary! Where do we call it a lot?
 
 4) Additional resources to explore when you're done: 
 - Video on working with devtools: https://www.youtube.com/watch?v=_EYk-E29edo
@@ -61,7 +62,6 @@ Performance Overlay to visualize repaint boundaries and look at frame rebuilds.
 - Info on rendering performance: https://docs.flutter.dev/perf/rendering-performance
 - Info on UI perfomrance: https://docs.flutter.dev/perf/ui-performance
 - Blog on working properly with layers: https://medium.com/flutter-community/the-layer-cake-widgets-elements-renderobjects-7644c3142401
-- 
 
 ### 🔍 Where to Find the Performance Overlay in Flutter
 1) Using Flutter DevTools
