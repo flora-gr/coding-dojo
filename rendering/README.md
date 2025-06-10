@@ -45,6 +45,7 @@ You’ll explore and apply performance optimizations in a sample Flutter app.
 Performance Overlay to visualize repaint boundaries and look at frame rebuilds.
 - Have a look at the different options for tracking widget builds, layouts and paints.
 - Have a look at disabling render layer types (clip, opacity, physical).
+- Profile build is best for tracking these performance issues.
 
 2) Identify which parts of the UI are unnecessarily rebuilding or repainting.
 - Refactor the code using separate StatelessWidgets.
