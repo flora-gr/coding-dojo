@@ -58,6 +58,7 @@ Performance Overlay to visualize repaint boundaries and look at frame rebuilds.
 4) Additional resources to explore when you're done: 
 - https://www.youtube.com/watch?v=_EYk-E29edo
 - https://docs.flutter.dev/perf/rendering-performance
+- https://docs.flutter.dev/perf/ui-performance
 
 ### 🔍 Where to Find the Performance Overlay in Flutter
 1) Using Flutter DevTools
